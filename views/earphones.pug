@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  h1= title
+
+  .container-fluid
+    .row
+      each earphones,index in results
+        .col-sm-2 
+        div.col-sm-2(onclick=`buy(${index})`)
+          p Earphones Brand: #{earphones.brand}
+          p Size: #{earphones.size}
+          p Price: $#{earphones.cost}
+          
+  a(href="/") Back to index
+
+  script. 
+    function buy(index) {
+      alert(`You purchased item ${index}`);
+    }
+
+          
