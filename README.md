@@ -1,7 +1,8 @@
-# s24wb05rakesh
+# s24db05karadi
 Hello World
 
-render link : https://s24wb05rakesh.onrender.com/
+render link for assignment 10 : https://s24wb05rakesh.onrender.com/<br>
+render link for assignment 11: <https://s24db05karadi.onrender.com>
 
 ## Class: Earphones
 
