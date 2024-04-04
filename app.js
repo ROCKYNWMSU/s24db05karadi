@@ -20,7 +20,6 @@ var usersRouter = require('./routes/users');
 var earphonesRouter = require('./routes/earphones');
 var gridRouter = require('./routes/grid');
 var pickRouter = require('./routes/pick')
-
 var app = express();
 var earphonesModel=require("./model/earphones");
 var resourceRouter=require('./routes/resource');

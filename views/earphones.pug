@@ -3,8 +3,10 @@ extends layout
 block content
   h1= title
 
-  .container-fluid
-    .row
+  div.container-fluid
+    div.row
+      -
+        let earphones=results
       each earphones,index in results
         .col-sm-2 
         div.col-sm-2(onclick=`buy(${index})`)
