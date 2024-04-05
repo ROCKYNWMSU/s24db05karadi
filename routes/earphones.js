@@ -13,8 +13,9 @@ router.get('/', function(req, res, next) {
 
 module.exports = router;
 var express = require('express');
-const earphones_controlers= require('../controllers/earphones');
+const earphones_controllers= require('../controllers/earphones');
 var router = express.Router();
 /* GET costumes */
-router.get('/', earphones_controlers.earphones_view_all_Page );
+router.get('/', earphones_controllers.earphones_view_all_Page );
+router.get('/earphones/:id', earphones_controllers.earphones_detail);
 module.exports = router;

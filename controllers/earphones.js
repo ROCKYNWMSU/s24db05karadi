@@ -62,4 +62,36 @@ exports.earphones_view_all_Page = async function(req, res) {
     res.send(`{"error": ${err}}`);
     }
     };
+   
+exports.earphones_detail = async function(req, res) {
+    console.log("detail" + req.params.id)
+    try {
+    result = await earphones.findById( req.params.id)
+    res.send(result)
+    } catch (error) {
+    res.status(500)
+    res.send(`{"error": document for id ${req.params.id} not found`);
+    }
+    };
+
+
+    exports.earphones_update_put = async function(req, res) {
+    console.log(`update on id ${req.params.id} with body
+    ${JSON.stringify(req.body)}`)
+    try {
+    let toUpdate = await earphones.findById( req.params.id)
+    // Do updates of properties
+    if(req.body.brand)
+    toUpdate.brand = req.body.brand;
+    if(req.body.cost) toUpdate.cost = req.body.cost;
+    if(req.body.size) toUpdate.size = req.body.size;
+    let result = await toUpdate.save();
+    console.log("Sucess " + result)
+    res.send(result)
+    } catch (err) {
+    res.status(500)
+    res.send(`{"error": ${err}: Update for id ${req.params.id}
+    failed`);
+    }
+    };
     
