@@ -95,3 +95,15 @@ exports.earphones_detail = async function(req, res) {
     }
     };
     
+    exports.earphones_delete = async function(req, res) {
+        console.log("delete " + req.params.id)
+        try {
+        result = await earphones.findByIdAndDelete( req.params.id)
+        console.log("Removed " + result)
+        res.send(result)
+        } catch (err) {
+        res.status(500)
+        res.send(`{"error": Error deleting ${err}}`);
+        }
+        };
+        
