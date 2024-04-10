@@ -1,0 +1,24 @@
+extends layout
+block content
+  h1= title
+ 
+  if toShow == null
+    h2 No instance to show
+  else
+    - let earphonesid = toShow._id
+    - let brand = toShow.brand
+    - let size = toShow.size
+    - let price = toShow.price
+    div
+      div.row
+        div.earphonesAttr.mr-3 earphones ID is:
+        div #{earphonesid}
+      div.row
+        div.earphonesAttr.mr-3 earphones Style is:
+        div #{brand}
+      div.row
+        div.earphonesAttr.mr-3 earphones Size is:
+        div #{size}
+      div.row
+        div.earphonesAttr.mr-3 earphones price is:
+        div #{price}

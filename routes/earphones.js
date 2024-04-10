@@ -18,4 +18,6 @@ var router = express.Router();
 /* GET costumes */
 router.get('/', earphones_controllers.earphones_view_all_Page );
 router.get('/earphones/:id', earphones_controllers.earphones_detail);
+/* GET detail costume page */
+router.get('/detail', earphones_controllers.earphones_view_one_Page);
 module.exports = router;

@@ -49,7 +49,7 @@ exports.earphones_view_all_Page = async function(req, res) {
     // We are looking for a body, since POST does not have query parameters.
     // Even though bodies can be in many different formats, we will be picky
     // and require that it be a json object
-    // {"costume_type":"goat", "cost":12, "size":"large"}
+    // {"earphones_type":"goat", "cost":12, "size":"large"}
     document.brand = req.body.brand;
     document.price = req.body.price;
     document.size = req.body.size;
@@ -106,4 +106,16 @@ exports.earphones_detail = async function(req, res) {
         res.send(`{"error": Error deleting ${err}}`);
         }
         };
-        
+        // Handle a show one view with id specified by query
+exports.earphones_view_one_Page = async function(req, res) {
+    console.log("single view for id " + req.query.id)
+    try{
+    result = await earphones.findById( req.query.id)
+    res.render('earphonesdetail',
+    { title: 'earphones Detail', toShow: result });
+    }
+    catch(err){
+    res.status(500)
+    res.send(`{'error': '${err}'}`);
+    }
+    };
