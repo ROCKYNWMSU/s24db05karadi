@@ -1,0 +1,36 @@
+extends layout
+ 
+block content
+
+  h1= title
+ 
+  form(id='earphonesForm', action="/resource/earphones", method="POST")
+    div.form-group
+      label.earphonesAttr(for='brand') earphones Brand
+      input#brand(type='text', name='brand')
+    div.form-group
+      label.earphonesAttr(for='size') earphones size
+      input#size(type='text', name='size')
+    div.form-group
+      label.earphonesAttr(for='cost') earphones cost
+      input#cost(type='number', name='cost')
+    input(type="submit")
+ 
+  script.
+    document.forms['earphonesForm'].addEventListener('submit', (event) => {
+      event.preventDefault();
+      // TODO do something here to show user tearphones form is being submitted
+      fetch(event.target.action, {
+        method: 'POST',
+        body: new URLSearchParams(new FormData(event.target)) // event.target is the form
+      }).then((resp) => {
+        return resp.json(); // or resp.text() or wearphonesever the server sends
+      }).then((body) => {
+        alert("Save succeeded");
+        // TODO handle body
+      }).catch((error) => {
+        // TODO handle error
+        alert("Save failed " + error );
+      });
+    });
+ 

@@ -15,9 +15,16 @@ module.exports = router;
 var express = require('express');
 const earphones_controllers= require('../controllers/earphones');
 var router = express.Router();
-/* GET costumes */
+/* GET earphones */
 router.get('/', earphones_controllers.earphones_view_all_Page );
 router.get('/earphones/:id', earphones_controllers.earphones_detail);
-/* GET detail costume page */
+/* GET detail earphones page */
 router.get('/detail', earphones_controllers.earphones_view_one_Page);
+
+/* GET create earphones page */
+router.get('/create', earphones_controllers.earphones_create_Page);
+/* GET create update page */
+router.get('/update', earphones_controllers.earphones_update_Page);
+
+
 module.exports = router;

@@ -119,3 +119,29 @@ exports.earphones_view_one_Page = async function(req, res) {
     res.send(`{'error': '${err}'}`);
     }
     };
+    // Handle building the view for creating a earphones.
+    // No body, no in path parameter, no query.
+    // Does not need to be async
+    exports.earphones_create_Page = function(req, res) {
+    console.log("create view")
+    try{
+    res.render('earphonescreate', { title: 'earphones Create'});
+    }
+    catch(err){
+    res.status(500)
+    res.send(`{'error': '${err}'}`);
+    }
+    };
+    // Handle building the view for updating a earphones.
+// query provides the id
+exports.earphones_update_Page = async function(req, res) {
+console.log("update view for item "+req.query.id)
+try{
+let result = await earphones.findById(req.query.id)
+res.render('earphonesupdate', { title: 'earphones Update', toShow: result });
+}
+catch(err){
+res.status(500)
+res.send(`{'error': '${err}'}`);
+}
+};
