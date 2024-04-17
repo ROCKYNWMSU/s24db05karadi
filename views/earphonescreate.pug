@@ -12,27 +12,27 @@ block content
  
   h1= title
  
-  form(id='hatForm', action="/resource/hat", method="POST")
+  form(id='earphonesForm', action="/resource/earphones", method="POST")
     div.form-group
-      label.hatAttr(for='hat_style') Hat Style
-      input#hat_style(type='text', name='hat_style')
+      label.earphonesAttr(for='earphones_style') earphones Brand
+      input#brand(type='text', name='earphones_style')
     div.form-group
-      label.hatAttr(for='size') Hat size
+      label.earphonesAttr(for='size') earphones size
       input#size(type='text', name='size')
     div.form-group
-      label.hatAttr(for='price') hat price
-      input#price(type='number', name='price')
+      label.earphonesAttr(for='cost') earphones cost
+      input#cost(type='number', name='cost')
     input(type="submit" class="btn btn-secondary")
  
   script.
-    document.forms['hatForm'].addEventListener('submit', (event) => {
+    document.forms['earphonesForm'].addEventListener('submit', (event) => {
       event.preventDefault();
-      // TODO do something here to show user that form is being submitted
+      // TODO do something here to show user tearphones form is being submitted
       fetch(event.target.action, {
         method: 'POST',
         body: new URLSearchParams(new FormData(event.target)) // event.target is the form
       }).then((resp) => {
-        return resp.json(); // or resp.text() or whatever the server sends
+        return resp.json(); // or resp.text() or wearphonesever the server sends
       }).then((body) => {
         alert("Save succeeded");
         // TODO handle body

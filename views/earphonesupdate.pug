@@ -8,21 +8,21 @@ block content
         - let earphonesid = toShow._id
         - let brand  = toShow.brand
         - let size = toShow.size
-        - let price = toShow.price
+        - let cost = toShow.cost
         div.row(class='mb-2')
             div.mr-1 ID is
                 div #{earphonesid}
                 - let actionid = "/resource/earphones/" + earphonesid
                 form(id='earphonesForm', action= actionid, method="POST")
                     div.form-group
-                        label.earphonesAttr(for='brand') earphones Style
+                        label.earphonesAttr(for='brand') earphones Brand
                         input#brand(type='text' name='brand', value= brand)
                     div.form-group
                         label.earphonesAttr(for='size') earphones Size
                         input#size(type='text' name='size', value= size)
                     div.form-group
-                        label.earphonesAttr(for='price') earphones price
-                        input#price(type='number' name='price', value= price)
+                        label.earphonesAttr(for='cost') earphones cost
+                        input#cost(type='number' name='cost', value= cost)
                     input(type="submit")
     script.
         document.forms['earphonesForm'].addEventListener('submit', (event) => {

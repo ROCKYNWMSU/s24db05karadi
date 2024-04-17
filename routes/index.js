@@ -75,5 +75,16 @@ router.get('/login', function(req, res) {
   router.get('/ping', function(req, res){
   res.status(200).send("pong!");
   });
+
+  // A little function to check if we have an authorized user and continue on 
+
+// redirect to login.
+const secured = (req, res, next) => {
+ if (req.user){
+ return next();
+ }
+ res.redirect("/login");
+ }
+ 
   module.exports = router;
   

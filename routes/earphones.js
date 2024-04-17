@@ -1,6 +1,12 @@
 var express = require('express');
 var router = express.Router();
-
+var passport=require('passport');
+// redirect to login.
+const secured = (req, res, next) => {
+  if (req.user){
+  return next();
+  }
+  res.redirect("/login");}
 /* GET home page. */
 router.get('/', function(req, res, next) {
   let results = [
@@ -19,14 +25,18 @@ var router = express.Router();
 router.get('/', earphones_controllers.earphones_view_all_Page );
 router.get('/earphones/:id', earphones_controllers.earphones_detail);
 /* GET detail earphones page */
-router.get('/detail', earphones_controllers.earphones_view_one_Page);
+router.get('/detail',secured, earphones_controllers.earphones_view_one_Page);
 
 /* GET create earphones page */
-router.get('/create', earphones_controllers.earphones_create_Page);
-/* GET create update page */
-router.get('/update', earphones_controllers.earphones_update_Page);
+router.get('/create',secured, earphones_controllers.earphones_create_Page);
 /* GET delete earphones page */
 router.get('/delete', earphones_controllers.earphones_delete_Page);
+/* GET update costume page */
+router.get('/update', secured,earphones_controllers.earphones_update_Page);
+router.post('/login', passport.authenticate('local'), function(req, res) {
+  res.redirect('/');
+  });
+  
 
 
 module.exports = router;

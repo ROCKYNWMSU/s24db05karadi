@@ -52,7 +52,7 @@ exports.earphones_view_all_Page = async function(req, res) {
     // {"earphones_type":"goat", "cost":12, "size":"large"}
     document.brand = req.body.brand;
     document.price = req.body.price;
-    document.size = req.body.size;
+    document.cost = req.body.cost;
     try{
     let result = await document.save();
     res.send(result);
