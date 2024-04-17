@@ -30,7 +30,7 @@
 //-   div(class="row m-1")
 //-     each item in items
 //-       - let destination = `dispatch(\"/earphones/update?id=${item._id}\")`
-//-       div(class="row-sm-2", class="m-1") Item: #{item.brand}(#{item.size}) is #{item.price}
+//-       div(class="row-sm-2", class="m-1") Item: #{item.brand}(#{item.size}) is #{item.cost}
 //-       button.btn( class="btn-primary ml-1", onclick= destination) Update
 //-   script.
 //-     function dispatch(path){
@@ -47,12 +47,12 @@ block content
   div(class="row m-1")
     each item in items
       - let destination = `dispatch(\"/earphones/update?id=${item._id}\")`
-      - let destinationdetail = `dispatch(\"/earphones/detail?id=${item._id}\")`
-      - let destinationdelete = `dispatch(\"/earphones/delete?id=${item._id}\")`
+      - let detail = `dispatch(\"/earphones/detail?id=${item._id}\")`
+      - let earphonesdelete = `dispatch(\"/earphones/delete?id=${item._id}\")`
       div(class="row-sm-2", class="m-1") Item: #{item.brand}(#{item.size}) is #{item.cost}
       button.btn( class="btn-primary ml-1", onclick= destination) Update
-      button.btn( class="btn-primary ml-1", onclick= destinationdetail) detail
-      button.btn( class="btn-primary ml-1", onclick= destinationdelete) delete
+      button.btn( class="btn-primary ml-1", onclick= detail) detail
+      button.btn( class="btn-primary ml-1", onclick= earphonesdelete) delete
   script.
     function dispatch(path){
       window.location.href=path}

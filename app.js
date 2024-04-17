@@ -103,7 +103,7 @@ async function recreateDB(){
   await earphonesModel.deleteMany();
   let instance1 = new
   earphonesModel({brand:"AcousticBeat", size:"Large",
-  price:521});
+  cost:521});
   instance1.save().then(doc=>{
   console.log("First object saved")}
   ).catch(err=>{
@@ -111,7 +111,7 @@ async function recreateDB(){
   });
   let instance2 = new
   earphonesModel({brand:"SonicBlast", size:"Small",
-  price:500});
+  cost:500});
   instance2.save().then(doc=>{
   console.log("Second object saved")}
   ).catch(err=>{
@@ -119,7 +119,7 @@ async function recreateDB(){
   });
   let instance3 = new
   earphonesModel({brand:"AudioPhonic", size:"medium",
-  price:590});
+  cost:590});
   instance3.save().then(doc=>{
   console.log("Third object saved")}
   ).catch(err=>{
